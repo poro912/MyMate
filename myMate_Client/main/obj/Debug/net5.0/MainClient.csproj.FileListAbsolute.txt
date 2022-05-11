@@ -1,0 +1,16 @@
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\bin\Debug\net5.0\MainClient.exe
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\bin\Debug\net5.0\MainClient.deps.json
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\bin\Debug\net5.0\MainClient.runtimeconfig.json
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\bin\Debug\net5.0\MainClient.runtimeconfig.dev.json
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\bin\Debug\net5.0\MainClient.dll
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\bin\Debug\net5.0\ref\MainClient.dll
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\bin\Debug\net5.0\MainClient.pdb
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\obj\Debug\net5.0\MainClient.csproj.AssemblyReference.cache
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\obj\Debug\net5.0\MainClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\obj\Debug\net5.0\MainClient.AssemblyInfoInputs.cache
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\obj\Debug\net5.0\MainClient.AssemblyInfo.cs
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\obj\Debug\net5.0\MainClient.csproj.CoreCompileInputs.cache
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\obj\Debug\net5.0\MainClient.dll
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\obj\Debug\net5.0\ref\MainClient.dll
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\obj\Debug\net5.0\MainClient.pdb
+C:\Users\jjh02\OneDrive\바탕 화면\Work\UNIV\graduation_proj\proj\myMate_Client\main\obj\Debug\net5.0\MainClient.genruntimeconfig.cache

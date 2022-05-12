@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jjh02\\OneDrive\\바탕 화면\\Work\\UNIV\\graduation_proj\\proj\\myMate_Server\\main\\MainServer.csproj": {}
+    "C:\\202007064\\Graduation_work\\myMate_Server\\main\\MainServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jjh02\\OneDrive\\바탕 화면\\Work\\UNIV\\graduation_proj\\proj\\myMate_Server\\main\\MainServer.csproj": {
+    "C:\\202007064\\Graduation_work\\myMate_Server\\main\\MainServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jjh02\\OneDrive\\바탕 화면\\Work\\UNIV\\graduation_proj\\proj\\myMate_Server\\main\\MainServer.csproj",
+        "projectUniqueName": "C:\\202007064\\Graduation_work\\myMate_Server\\main\\MainServer.csproj",
         "projectName": "MainServer",
-        "projectPath": "C:\\Users\\jjh02\\OneDrive\\바탕 화면\\Work\\UNIV\\graduation_proj\\proj\\myMate_Server\\main\\MainServer.csproj",
-        "packagesPath": "C:\\Users\\jjh02\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jjh02\\OneDrive\\바탕 화면\\Work\\UNIV\\graduation_proj\\proj\\myMate_Server\\main\\obj\\",
+        "projectPath": "C:\\202007064\\Graduation_work\\myMate_Server\\main\\MainServer.csproj",
+        "packagesPath": "C:\\Users\\YUHAN\\.nuget\\packages\\",
+        "outputPath": "C:\\202007064\\Graduation_work\\myMate_Server\\main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jjh02\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YUHAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

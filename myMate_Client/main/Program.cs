@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
 
 namespace main
 {
@@ -6,7 +9,7 @@ namespace main
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("난 클라이언트당");
+            
         }
     }
 }

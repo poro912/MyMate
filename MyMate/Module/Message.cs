@@ -8,7 +8,7 @@ using ClientModule;
 
 namespace Module
 {
-	internal class Message
+	class Message
 	{
 		private long userCode;
 		private bool isdelete;

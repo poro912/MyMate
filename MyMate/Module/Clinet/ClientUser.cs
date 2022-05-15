@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 using Module;
 
-namespace ClientModule
+namespace Module.Client
 {
-	internal class ClientUser : User
+	class ClientUser : User
 	{
 		public ClientUser
 			(

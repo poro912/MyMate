@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module
+namespace Module.ServerModule
 {
-	class Channel
-	{
-		private long cdoe;
-		private String name;
-		public List<Message> messages;
-	}
+    internal class Thread
+    {
+    }
 }

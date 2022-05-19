@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
-namespace Module
+namespace Module.MainModule
 {
-	abstract class User
+	public abstract class User
 	{
 		private long code;
 		private String id;
@@ -65,7 +63,7 @@ namespace Module
 		/// </returns>
 		public abstract bool CheckPW(
 			String pw
-			);
+		);
 
 
 

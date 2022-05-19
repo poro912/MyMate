@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module.Server
+using Module.MainModule;
+
+namespace Module.ServerModule
 {
-    internal class Thread
+    public class ServerUser
     {
+
     }
 }

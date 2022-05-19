@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using Module;
-
-namespace Module.Server
+/// <summary>
+/// 
+/// </summary>
+namespace Module.MainModule
 {
-    class ServerUser
+    internal class DataQuary
     {
-
     }
 }

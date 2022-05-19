@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module
+namespace Module.MainModule
 {
     
-    class Communicator
+    public class Communicator
     {
-        public static int lLOGIN = 1;
+        public static int LOGIN = 1;
 
 
         public User user;

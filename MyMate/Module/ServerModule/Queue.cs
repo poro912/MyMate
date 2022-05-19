@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Module.MainModule;
 
-namespace Module.Server
+namespace Module.ServerModule
 {
-    class Queue
+    public class Queue
     {
         Queue<Communicator> process;
         Queue<Communicator> send;

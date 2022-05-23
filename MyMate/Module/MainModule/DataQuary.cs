@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /// <summary>
-/// 
+/// DB와 연동할 클래스
 /// </summary>
 namespace Module.MainModule
 {
-    internal class DataQuary
+    public abstract class DataQuary
     {
     }
 }

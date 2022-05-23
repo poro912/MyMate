@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// 메시지 교환을 위한 클래스
+/// </summary>
 namespace Module.MainModule
 {
-    
+    enum action_list
+    {
+        LOGIN = 0
+    }
+
     public class Communicator
     {
-        public static int LOGIN = 1;
-
-
         public User user;
         public Message message;
         public long serverCode;
         public long channelCode;
-        public int type;
+        public int action;
 
     }
 }

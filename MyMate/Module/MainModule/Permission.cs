@@ -13,7 +13,7 @@ namespace Module.MainModule
 		ALL		= 2
 	}
 
-	public  class Permission
+	public class Permission
 	{
 		[Flags]
 		public enum PermissionFlags

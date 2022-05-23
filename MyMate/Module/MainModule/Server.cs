@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Module.MainModule
 {
-	public class Server
+	public abstract class Server
 	{
 		private long code;
 		private string name;
@@ -19,7 +19,7 @@ namespace Module.MainModule
 		public Server(User owner)
         {
 			owners.Add(owner);
-			roles.Add(new KeyValuePair<string, Permission>("master",new Permission()));
+			roles.Add(new KeyValuePair<string, Permission>("master", new Permission() ) );
         }
 		
 		public bool addRole(String name)
@@ -28,11 +28,8 @@ namespace Module.MainModule
 			return true;
 		}
 
-		public bool regist()
-        {
-			return true;
 
-        }
+		public abstract bool regist();
 
 	}
 }

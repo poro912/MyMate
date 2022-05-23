@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Module.MainModule
 {
-	public class Channel
+	public abstract class Channel
 	{
 		private long cdoe;
 		private String name;

@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 /// </summary>
 namespace Module.MainModule
 {
-    enum action_list
-    {
-        LOGIN = 0
-    }
+	enum action_list
+	{
+		LOGIN = 0
+	}
 
-    public class Communicator
-    {
-        public User ?       user;
-        public Message ?    message;
-        public long ?       serverCode;
-        public long ?       channelCode;
-        public int ?        action;
-    }
+	public class Communicator
+	{
+		public User         user;
+		public Message      message;
+		public long ?       serverCode;
+		public long ?       channelCode;
+		public int ?        action;
+	}
 }

@@ -4,16 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Module.MainModule
 {
+	/// <summary>
+	/// 메시지 생성, 등록, 수정, 삭제
+	/// 메시지의 형태를 정하고 메시지의 내용을 수정할 때만 쓰인다.
+	/// 메시지 등록과 전송은 채널에서 한다.
+	/// 
+	/// 메시지 생성 : 메시지 전송 버튼 클릭, 메시지 송신완료 시 발생
+	/// </summary>
 	public abstract class Message
 	{
-		private long userCode;
-		private bool isdelete;
-		private long to;
-		private DateTime? time;		// Nullable 타입
-		private String context;		// 문자열 작업은 StringBilder를 통해서
+		private long        userCode;
+		private bool        isdelete;
+		private long        to;
+		private DateTime?   time;		// Nullable 타입
+		private String      context;		// 문자열 작업은 StringBilder를 통해서
 
 		public long UserCode { get; }
 		public long To { get; }
@@ -55,7 +61,11 @@ namespace Module.MainModule
 		/// <param name="userCode"></param>
 		/// <param name="to"></param>
 		/// <param name="context"></param>
-		public Message(long userCode, long to, StringBuilder context)
+		public Message(
+			long			userCode,
+			long			to,
+			StringBuilder	context
+			)
 		{
 			Init(userCode, to);
 			SetContext(context);
@@ -68,7 +78,9 @@ namespace Module.MainModule
 		/// </summary>
 		/// <param name="userCode"></param>
 		/// <param name="to"></param>
-		private void Init(long userCode, long to)
+		private void Init(
+			long		userCode,
+			long		to)
         {
 			this.userCode = userCode;
 			this.to = to;
@@ -94,7 +106,9 @@ namespace Module.MainModule
 		/// String의 메모리 관리의 단점을 줄이기 위해 작성
 		/// </summary>
 		/// <param name="context"></param>
-		public void SetContext(StringBuilder context)
+		public void SetContext(
+			StringBuilder context
+			)
         {
 			this.context = context.ToString();
         }
@@ -105,17 +119,13 @@ namespace Module.MainModule
 		/// 메모리 관리의 단점이 있다.
 		/// </summary>
 		/// <param name="context"></param>
-		public void SetContext(String context)
+		public void SetContext(
+			String context
+			)
         {
 			this.context = context;
         }
 		
-		public abstract bool Sand();
-		/*
-		 *		클라이언트에서 구현
-		 * 		public abstract bool ModifyContext();
-		 * 		public abstract bool ModifyContext(String context);
-		 * 		public abstract bool ModifyContext(StringBuilder context);
-		*/
+		
 	}
 }

@@ -15,7 +15,7 @@ namespace ClientForm
         public FromProfile()
         {
             InitializeComponent();
-            circlePictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            //circlePictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -104,11 +104,11 @@
     <Compile Include="View\Example\FormGroupChat.Designer.cs">
       <DependentUpon>FormGroupChat.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Parent\SignUpForm.cs">
+    <Compile Include="View\Parent\FormSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Parent\SignUpForm.Designer.cs">
-      <DependentUpon>SignUpForm.cs</DependentUpon>
+    <Compile Include="View\Parent\FormSignUp.Designer.cs">
+      <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\UcCalendarDate1.cs">
       <SubType>UserControl</SubType>
@@ -172,8 +172,8 @@
     <EmbeddedResource Include="View\Example\FormGroupChat.resx">
       <DependentUpon>FormGroupChat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Parent\SignUpForm.resx">
-      <DependentUpon>SignUpForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\Parent\FormSignUp.resx">
+      <DependentUpon>FormSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\UcCalendarDate1.resx">
       <DependentUpon>UcCalendarDate1.cs</DependentUpon>

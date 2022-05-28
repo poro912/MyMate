@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsFormsApp1
+namespace ClientForm
 {
     partial class FormCalendar
     {
@@ -103,7 +103,7 @@ namespace WindowsFormsApp1
             this.label7.ForeColor = System.Drawing.Color.Red;
             this.label7.Location = new System.Drawing.Point(778, 7);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 32);
+            this.label7.Size = new System.Drawing.Size(57, 32);
             this.label7.TabIndex = 11;
             this.label7.Text = "SAT";
             // 
@@ -114,7 +114,7 @@ namespace WindowsFormsApp1
             this.label6.Font = new System.Drawing.Font("함초롬돋움", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.Location = new System.Drawing.Point(655, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 32);
+            this.label6.Size = new System.Drawing.Size(53, 32);
             this.label6.TabIndex = 10;
             this.label6.Text = "FRI";
             // 
@@ -123,9 +123,9 @@ namespace WindowsFormsApp1
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("함초롬돋움", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(526, 7);
+            this.label5.Location = new System.Drawing.Point(527, 7);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 32);
+            this.label5.Size = new System.Drawing.Size(62, 32);
             this.label5.TabIndex = 9;
             this.label5.Text = "THU";
             // 
@@ -134,9 +134,9 @@ namespace WindowsFormsApp1
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("함초롬돋움", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(279, 7);
+            this.label3.Location = new System.Drawing.Point(280, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 32);
+            this.label3.Size = new System.Drawing.Size(60, 32);
             this.label3.TabIndex = 7;
             this.label3.Text = "TUE";
             // 
@@ -145,9 +145,9 @@ namespace WindowsFormsApp1
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("함초롬돋움", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(399, 7);
+            this.label4.Location = new System.Drawing.Point(400, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 32);
+            this.label4.Size = new System.Drawing.Size(68, 32);
             this.label4.TabIndex = 8;
             this.label4.Text = "WED";
             // 
@@ -159,7 +159,7 @@ namespace WindowsFormsApp1
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(30, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 32);
+            this.label1.Size = new System.Drawing.Size(63, 32);
             this.label1.TabIndex = 5;
             this.label1.Text = "SUN";
             // 
@@ -170,7 +170,7 @@ namespace WindowsFormsApp1
             this.label2.Font = new System.Drawing.Font("함초롬돋움", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(152, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 32);
+            this.label2.Size = new System.Drawing.Size(67, 32);
             this.label2.TabIndex = 6;
             this.label2.Text = "MON";
             // 

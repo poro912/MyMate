@@ -56,6 +56,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\CheckListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CheckListForm.Designer.cs">
+      <DependentUpon>CheckListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ChildForms\FormChkList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,12 @@
     </Compile>
     <Compile Include="View\DialogForms\FormScheduleList.Designer.cs">
       <DependentUpon>FormScheduleList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SignUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SignUpForm.Designer.cs">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\UcCalendarDate1.cs">
       <SubType>UserControl</SubType>
@@ -112,8 +124,14 @@
     <Compile Include="View\UserControls\UcCalendarDate2.Designer.cs">
       <DependentUpon>UcCalendarDate2.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CheckListForm.resx">
+      <DependentUpon>CheckListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DialogForms\FormScheduleList.resx">
       <DependentUpon>FormScheduleList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SignUpForm.resx">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\UcCalendarDate1.resx">
       <DependentUpon>UcCalendarDate1.cs</DependentUpon>
@@ -163,6 +181,11 @@
   <ItemGroup>
     <None Include="Resources\MyMate2.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\close_15.png" />
+    <None Include="Resources\close_151.png" />
+    <Content Include="Resources\close_20.png" />
+    <Content Include="Resources\close_25.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

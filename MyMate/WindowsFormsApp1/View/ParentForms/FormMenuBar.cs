@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Windows.Threading;
 
-namespace WindowsFormsApp1
+namespace ClientForm
 {
     public partial class FormMenuBar : Form
     {

@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ClientForm
 {
-    public partial class FormMain : Form
+    public partial class SignUpForm : Form
     {
-        public FormMain()
+        public SignUpForm()
         {
             InitializeComponent();
+        }
+
+        private void SignUpForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

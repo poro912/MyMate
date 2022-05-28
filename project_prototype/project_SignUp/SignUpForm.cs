@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClientForm
+namespace project_SignUp
 {
-    public partial class FormMain : Form
+    public partial class SignUpForm : Form
     {
-        public FormMain()
+        public SignUpForm()
         {
             InitializeComponent();
+        }
+
+        private void SignUpForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

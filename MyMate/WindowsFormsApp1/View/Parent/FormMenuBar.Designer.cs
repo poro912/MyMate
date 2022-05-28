@@ -37,6 +37,7 @@ namespace ClientForm
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -50,9 +51,8 @@ namespace ClientForm
             this.btnChat = new FontAwesome.Sharp.IconButton();
             this.btnChkList = new FontAwesome.Sharp.IconButton();
             this.btnCalendar = new FontAwesome.Sharp.IconButton();
-            this.pBoxLogo = new System.Windows.Forms.PictureBox();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelMenubar.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -126,6 +126,15 @@ namespace ClientForm
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 10);
             this.panel6.TabIndex = 18;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Gray;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 701);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(150, 10);
+            this.panel4.TabIndex = 4;
             // 
             // panel1
             // 
@@ -343,24 +352,6 @@ namespace ClientForm
             this.btnCalendar.UseVisualStyleBackColor = false;
             this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
-            // pBoxLogo
-            // 
-            this.pBoxLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pBoxLogo.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.MyMate2;
-            this.pBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pBoxLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pBoxLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pBoxLogo.ErrorImage = null;
-            this.pBoxLogo.InitialImage = null;
-            this.pBoxLogo.Location = new System.Drawing.Point(0, 0);
-            this.pBoxLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.pBoxLogo.Name = "pBoxLogo";
-            this.pBoxLogo.Size = new System.Drawing.Size(150, 130);
-            this.pBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pBoxLogo.TabIndex = 5;
-            this.pBoxLogo.TabStop = false;
-            this.pBoxLogo.Click += new System.EventHandler(this.pBoxLogo_Click);
-            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -383,14 +374,23 @@ namespace ClientForm
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // panel4
+            // pBoxLogo
             // 
-            this.panel4.BackColor = System.Drawing.Color.Gray;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 701);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(150, 10);
-            this.panel4.TabIndex = 4;
+            this.pBoxLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pBoxLogo.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.MyMate2;
+            this.pBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pBoxLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pBoxLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pBoxLogo.ErrorImage = null;
+            this.pBoxLogo.InitialImage = null;
+            this.pBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pBoxLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.pBoxLogo.Name = "pBoxLogo";
+            this.pBoxLogo.Size = new System.Drawing.Size(150, 130);
+            this.pBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pBoxLogo.TabIndex = 5;
+            this.pBoxLogo.TabStop = false;
+            this.pBoxLogo.Click += new System.EventHandler(this.pBoxLogo_Click);
             // 
             // FormMenuBar
             // 

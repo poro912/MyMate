@@ -56,6 +56,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\Example\CircleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Example\CirclePictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Example\CheckListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,30 @@
     </Compile>
     <Compile Include="View\Child\Calendar\FormScheduleList.Designer.cs">
       <DependentUpon>FormScheduleList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Example\FormCall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Example\FormCall.Designer.cs">
+      <DependentUpon>FormCall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Example\FromProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Example\FromProfile.Designer.cs">
+      <DependentUpon>FromProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Example\FormDirectChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Example\FormDirectChat.Designer.cs">
+      <DependentUpon>FormDirectChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Example\FormGroupChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Example\FormGroupChat.Designer.cs">
+      <DependentUpon>FormGroupChat.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Parent\SignUpForm.cs">
       <SubType>Form</SubType>
@@ -130,6 +160,18 @@
     <EmbeddedResource Include="View\Child\Calendar\FormScheduleList.resx">
       <DependentUpon>FormScheduleList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Example\FormCall.resx">
+      <DependentUpon>FormCall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Example\FromProfile.resx">
+      <DependentUpon>FromProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Example\FormDirectChat.resx">
+      <DependentUpon>FormDirectChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Example\FormGroupChat.resx">
+      <DependentUpon>FormGroupChat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Parent\SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +224,8 @@
     <None Include="Resources\MyMate2.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\bono.jpg" />
+    <None Include="Resources\bono1.jpg" />
     <Content Include="Resources\close_15.png" />
     <None Include="Resources\close_151.png" />
     <Content Include="Resources\close_20.png" />

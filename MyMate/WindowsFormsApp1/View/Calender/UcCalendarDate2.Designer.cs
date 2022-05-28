@@ -1,5 +1,5 @@
 ﻿
-namespace ClientForm
+namespace WindowsFormsApp1
 {
     partial class UcCalendarDate2
     {

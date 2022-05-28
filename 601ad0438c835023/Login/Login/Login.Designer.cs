@@ -1,0 +1,189 @@
+﻿
+namespace Login
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// 필수 디자이너 변수입니다.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// 사용 중인 모든 리소스를 정리합니다.
+        /// </summary>
+        /// <param name="disposing">관리되는 리소스를 삭제해야 하면 true이고, 그렇지 않으면 false입니다.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form 디자이너에서 생성한 코드
+
+        /// <summary>
+        /// 디자이너 지원에 필요한 메서드입니다. 
+        /// 이 메서드의 내용을 코드 편집기로 수정하지 마세요.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.UserID = new System.Windows.Forms.TextBox();
+            this.PW = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Login = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // UserID
+            // 
+            this.UserID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UserID.Location = new System.Drawing.Point(507, 376);
+            this.UserID.Name = "UserID";
+            this.UserID.Size = new System.Drawing.Size(100, 21);
+            this.UserID.TabIndex = 0;
+            // 
+            // PW
+            // 
+            this.PW.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PW.Location = new System.Drawing.Point(507, 421);
+            this.PW.Multiline = true;
+            this.PW.Name = "PW";
+            this.PW.PasswordChar = '*';
+            this.PW.Size = new System.Drawing.Size(100, 21);
+            this.PW.TabIndex = 1;
+            this.PW.TextChanged += new System.EventHandler(this.PW_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Location = new System.Drawing.Point(421, 380);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "아이디 :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Location = new System.Drawing.Point(415, 425);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "비밀번호 :";
+            // 
+            // Login
+            // 
+            this.Login.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Login.Location = new System.Drawing.Point(643, 375);
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(75, 23);
+            this.Login.TabIndex = 4;
+            this.Login.Text = "로그인";
+            this.Login.UseVisualStyleBackColor = true;
+            this.Login.Click += new System.EventHandler(this.Login_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.Location = new System.Drawing.Point(746, 375);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "회원가입";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(643, 437);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(88, 16);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "로그인 유지";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(643, 415);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(88, 16);
+            this.checkBox2.TabIndex = 7;
+            this.checkBox2.Text = "아이디 저장";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(744, 416);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(125, 12);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "아이디, 비밀번호 찾기";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::Login.Properties.Resources.MyMate_로고2;
+            this.pictureBox1.Location = new System.Drawing.Point(547, 132);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(156, 157);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Form1
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Login);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PW);
+            this.Controls.Add(this.UserID);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TextBox UserID;
+        private System.Windows.Forms.TextBox PW;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Login;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+    }
+}
+

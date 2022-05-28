@@ -56,28 +56,28 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\CheckListForm.cs">
+    <Compile Include="View\Example\CheckListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CheckListForm.Designer.cs">
+    <Compile Include="View\Example\CheckListForm.Designer.cs">
       <DependentUpon>CheckListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ChildForms\FormChkList.cs">
+    <Compile Include="View\Child\FormChkList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ChildForms\FormChkList.Designer.cs">
+    <Compile Include="View\Child\FormChkList.Designer.cs">
       <DependentUpon>FormChkList.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\DialogForms\FormScheduleList.cs">
+    <Compile Include="View\Child\Calendar\FormScheduleList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\DialogForms\FormScheduleList.Designer.cs">
+    <Compile Include="View\Child\Calendar\FormScheduleList.Designer.cs">
       <DependentUpon>FormScheduleList.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\SignUpForm.cs">
+    <Compile Include="View\Parent\SignUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\SignUpForm.Designer.cs">
+    <Compile Include="View\Parent\SignUpForm.Designer.cs">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\UcCalendarDate1.cs">
@@ -86,34 +86,34 @@
     <Compile Include="View\UserControls\UcCalendarDate1.Designer.cs">
       <DependentUpon>UcCalendarDate1.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ChildForms\FormMain.cs">
+    <Compile Include="View\Child\FormDefault.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ChildForms\FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <Compile Include="View\Child\FormDefault.Designer.cs">
+      <DependentUpon>FormDefault.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ChildForms\FormSettings.cs">
+    <Compile Include="View\Child\FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ChildForms\FormSettings.Designer.cs">
+    <Compile Include="View\Child\FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ChildForms\FormCalendar.cs">
+    <Compile Include="View\Child\Calendar\FormCalendar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ChildForms\FormCalendar.Designer.cs">
+    <Compile Include="View\Child\Calendar\FormCalendar.Designer.cs">
       <DependentUpon>FormCalendar.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ParentForms\FormMenuBar.cs">
+    <Compile Include="View\Parent\FormMenuBar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ParentForms\FormMenuBar.Designer.cs">
+    <Compile Include="View\Parent\FormMenuBar.Designer.cs">
       <DependentUpon>FormMenuBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ParentForms\FormLogin.cs">
+    <Compile Include="View\Parent\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ParentForms\FormLogin.designer.cs">
+    <Compile Include="View\Parent\FormLogin.designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -124,31 +124,31 @@
     <Compile Include="View\UserControls\UcCalendarDate2.Designer.cs">
       <DependentUpon>UcCalendarDate2.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\CheckListForm.resx">
+    <EmbeddedResource Include="View\Example\CheckListForm.resx">
       <DependentUpon>CheckListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\DialogForms\FormScheduleList.resx">
+    <EmbeddedResource Include="View\Child\Calendar\FormScheduleList.resx">
       <DependentUpon>FormScheduleList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\SignUpForm.resx">
+    <EmbeddedResource Include="View\Parent\SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\UcCalendarDate1.resx">
       <DependentUpon>UcCalendarDate1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ChildForms\FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <EmbeddedResource Include="View\Child\FormDefault.resx">
+      <DependentUpon>FormDefault.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ChildForms\FormSettings.resx">
+    <EmbeddedResource Include="View\Child\FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ChildForms\FormCalendar.resx">
+    <EmbeddedResource Include="View\Child\Calendar\FormCalendar.resx">
       <DependentUpon>FormCalendar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ParentForms\FormMenuBar.resx">
+    <EmbeddedResource Include="View\Parent\FormMenuBar.resx">
       <DependentUpon>FormMenuBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ParentForms\FormLogin.resx">
+    <EmbeddedResource Include="View\Parent\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -186,6 +186,9 @@
     <None Include="Resources\close_151.png" />
     <Content Include="Resources\close_20.png" />
     <Content Include="Resources\close_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\Dialogs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,7 +8,7 @@ namespace Module.MainModule
 {
 	public abstract class Channel
 	{
-		private long        cdoe;
+		private long        code;
 		private String      name;
 		public List<Message>    messages;
 

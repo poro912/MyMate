@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ClientForm
 {
-    public partial class FormChkList : Form
+    public partial class ExFormSignUp : Form
     {
-        public FormChkList()
+        public ExFormSignUp()
         {
             InitializeComponent();
+        }
+
+        private void SignUpForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

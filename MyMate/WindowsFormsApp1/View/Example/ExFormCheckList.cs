@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ClientForm
 {
-    public partial class CheckListForm : Form
+    public partial class ExFormCheckList : Form
     {
         ///<summary>
         ///AddTextBox에 들어가는 힌트텍스트 상수
@@ -28,7 +28,7 @@ namespace ClientForm
         private Font boldFont = new Font("맑은 고딕", 12, FontStyle.Bold);
 
 
-        public CheckListForm()
+        public ExFormCheckList()
         {
             InitializeComponent();
         }

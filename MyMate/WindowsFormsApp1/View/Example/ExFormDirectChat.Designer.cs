@@ -1,7 +1,7 @@
 ﻿
 namespace ClientForm
 {
-    partial class FormDirectChat
+    partial class ExFormDirectChat
     {
         /// <summary>
         /// Required designer variable.
@@ -312,14 +312,14 @@ namespace ClientForm
             this.label3.TabIndex = 1;
             this.label3.Text = "유저 목록";
             // 
-            // Form2
+            // FormDirectChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "FormDirectChat";
+            this.Text = "Chat";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();

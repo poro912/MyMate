@@ -56,23 +56,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\Example\CircleButton.cs">
+    <Compile Include="View\Example\ExCircleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Example\CirclePictureBox.cs">
+    <Compile Include="View\Example\ExCirclePictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Example\CheckListForm.cs">
+    <Compile Include="View\Example\ExFormCheckList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Example\CheckListForm.Designer.cs">
-      <DependentUpon>CheckListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Child\FormChkList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Child\FormChkList.Designer.cs">
-      <DependentUpon>FormChkList.cs</DependentUpon>
+    <Compile Include="View\Example\ExFormCheckList.Designer.cs">
+      <DependentUpon>ExFormCheckList.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Child\Calendar\FormScheduleList.cs">
       <SubType>Form</SubType>
@@ -80,35 +74,35 @@
     <Compile Include="View\Child\Calendar\FormScheduleList.Designer.cs">
       <DependentUpon>FormScheduleList.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Example\FormCall.cs">
+    <Compile Include="View\Example\ExFormCall.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Example\FormCall.Designer.cs">
-      <DependentUpon>FormCall.cs</DependentUpon>
+    <Compile Include="View\Example\ExFormCall.Designer.cs">
+      <DependentUpon>ExFormCall.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Example\FromProfile.cs">
+    <Compile Include="View\Example\ExFormProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Example\FromProfile.Designer.cs">
-      <DependentUpon>FromProfile.cs</DependentUpon>
+    <Compile Include="View\Example\ExFormProfile.Designer.cs">
+      <DependentUpon>ExFormProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Example\FormDirectChat.cs">
+    <Compile Include="View\Example\ExFormDirectChat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Example\FormDirectChat.Designer.cs">
-      <DependentUpon>FormDirectChat.cs</DependentUpon>
+    <Compile Include="View\Example\ExFormDirectChat.Designer.cs">
+      <DependentUpon>ExFormDirectChat.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Example\FormGroupChat.cs">
+    <Compile Include="View\Example\ExFormGroupChat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Example\FormGroupChat.Designer.cs">
-      <DependentUpon>FormGroupChat.cs</DependentUpon>
+    <Compile Include="View\Example\ExFormGroupChat.Designer.cs">
+      <DependentUpon>ExFormGroupChat.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Parent\FormSignUp.cs">
+    <Compile Include="View\Example\ExFormSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Parent\FormSignUp.Designer.cs">
-      <DependentUpon>FormSignUp.cs</DependentUpon>
+    <Compile Include="View\Example\ExFormSignUp.Designer.cs">
+      <DependentUpon>ExFormSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\UcCalendarDate1.cs">
       <SubType>UserControl</SubType>
@@ -154,26 +148,26 @@
     <Compile Include="View\UserControls\UcCalendarDate2.Designer.cs">
       <DependentUpon>UcCalendarDate2.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Example\CheckListForm.resx">
-      <DependentUpon>CheckListForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\Example\ExFormCheckList.resx">
+      <DependentUpon>ExFormCheckList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Child\Calendar\FormScheduleList.resx">
       <DependentUpon>FormScheduleList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Example\FormCall.resx">
-      <DependentUpon>FormCall.cs</DependentUpon>
+    <EmbeddedResource Include="View\Example\ExFormCall.resx">
+      <DependentUpon>ExFormCall.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Example\FromProfile.resx">
-      <DependentUpon>FromProfile.cs</DependentUpon>
+    <EmbeddedResource Include="View\Example\ExFormProfile.resx">
+      <DependentUpon>ExFormProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Example\FormDirectChat.resx">
-      <DependentUpon>FormDirectChat.cs</DependentUpon>
+    <EmbeddedResource Include="View\Example\ExFormDirectChat.resx">
+      <DependentUpon>ExFormDirectChat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Example\FormGroupChat.resx">
-      <DependentUpon>FormGroupChat.cs</DependentUpon>
+    <EmbeddedResource Include="View\Example\ExFormGroupChat.resx">
+      <DependentUpon>ExFormGroupChat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Parent\FormSignUp.resx">
-      <DependentUpon>FormSignUp.cs</DependentUpon>
+    <EmbeddedResource Include="View\Example\ExFormSignUp.resx">
+      <DependentUpon>ExFormSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\UcCalendarDate1.resx">
       <DependentUpon>UcCalendarDate1.cs</DependentUpon>
@@ -231,8 +225,6 @@
     <Content Include="Resources\close_20.png" />
     <Content Include="Resources\close_25.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Dialogs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

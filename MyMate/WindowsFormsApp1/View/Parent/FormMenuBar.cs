@@ -17,6 +17,7 @@ namespace ClientForm
     {
         private IconButton currentBtn;
         private Form currentChildForm;
+        private List<Form> previousChildForms;
 
         public FormMenuBar()
         {
@@ -31,6 +32,7 @@ namespace ClientForm
             dt1.Interval = new TimeSpan(0, 0, 1);
             dt1.Tick += new EventHandler(Timer1_Tick);
             dt1.Start();
+            previousChildForms = new List<Form>();
 
             OpenChildForm(new FormDefault());
         }
@@ -53,11 +55,12 @@ namespace ClientForm
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void OpenChildForm(Form childForm)
+        public void OpenChildForm(Form childForm)
         {
             if (currentChildForm != null)
                 currentChildForm.Close();
-            
+
+            previousChildForms.Clear();
             currentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -122,13 +125,40 @@ namespace ClientForm
         private void btnChkList_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            OpenChildForm(new FormChkList());
+            OpenChildForm(new ExFormCheckList()); //fix
         }
 
         private void btnChat_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            //OpenChildForm(new FormChat());
+            ExFormGroupChat exFormGroupChat = new ExFormGroupChat();
+            exFormGroupChat.FormSwitchEvent += new ExFormGroupChat.FormSwitchEventHandler(SwitchChildForm);
+            OpenChildForm(exFormGroupChat);
+        }
+
+        private void SwitchChildForm(Form childForm) {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Hide();
+                previousChildForms.Add(currentChildForm);
+            }
+
+            currentChildForm = childForm;
+            childForm.FormClosed += (s, arg) =>
+            {
+                previousChildForms[previousChildForms.Count - 1].Show();
+                previousChildForms.RemoveAt(previousChildForms.Count - 1);
+            };
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            childForm.BackColor = Color.White;
+            panelDesktop.Controls.Add(childForm);
+            panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            lblTitle.Text = childForm.Text;
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

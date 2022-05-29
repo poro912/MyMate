@@ -107,10 +107,6 @@ namespace ClientForm
 			decreaseYear();
 		}
 
-		private void iconButton1_Click(object sender, EventArgs e)
-		{
-		}
-
 		public void decreaseMonth()
 		{
 			month--;
@@ -121,9 +117,5 @@ namespace ClientForm
 			}
 			displayDays();
 		}
-
-
-
-
 	}
 }

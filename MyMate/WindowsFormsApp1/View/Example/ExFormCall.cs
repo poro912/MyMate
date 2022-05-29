@@ -11,28 +11,13 @@ using System.Windows.Forms;
 
 namespace ClientForm
 {
-    public partial class FormCall : Form
+    public partial class ExFormCall : Form
     {
-        public FormCall()
+        public ExFormCall()
         {
             InitializeComponent();
             textBox1.Select(0, textBox1.Text.Length);
             textBox1.ScrollToCaret();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -43,6 +28,11 @@ namespace ClientForm
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

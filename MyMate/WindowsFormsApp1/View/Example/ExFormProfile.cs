@@ -10,45 +10,15 @@ using System.Windows.Forms;
 
 namespace ClientForm
 {
-    public partial class FromProfile : Form
+    public partial class ExFormProfile : Form
     {
-        public FromProfile()
+        public ExFormProfile()
         {
             InitializeComponent();
             //circlePictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void circlePictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void circlePictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void circleButton3_Click(object sender, EventArgs e)
         {
 
         }
@@ -66,6 +36,11 @@ namespace ClientForm
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

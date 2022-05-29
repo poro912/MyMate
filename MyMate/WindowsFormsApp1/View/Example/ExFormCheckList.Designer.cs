@@ -1,7 +1,7 @@
 ﻿
 namespace ClientForm
 {
-    partial class CheckListForm
+    partial class ExFormCheckList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ClientForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExFormCheckList));
             this.CalLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.RowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ListPanel = new System.Windows.Forms.Panel();
@@ -999,15 +999,15 @@ namespace ClientForm
             this.Info_DateLabel.Text = "Date :";
             this.Info_DateLabel.Visible = false;
             // 
-            // CheckListForm
+            // ExFormCheckList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 474);
             this.Controls.Add(this.CalLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "CheckListForm";
-            this.Text = "CheckListForm";
+            this.Name = "ExFormCheckList";
+            this.Text = "Checklist";
             this.CalLayoutPanel.ResumeLayout(false);
             this.RowLayoutPanel.ResumeLayout(false);
             this.ListPanel.ResumeLayout(false);

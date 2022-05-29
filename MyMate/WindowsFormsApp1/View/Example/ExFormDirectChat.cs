@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace ClientForm
 {
-    public partial class FormSignUp : Form
+    public partial class ExFormDirectChat : Form
     {
-        public FormSignUp()
+        public ExFormDirectChat()
         {
             InitializeComponent();
         }
 
-        private void SignUpForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

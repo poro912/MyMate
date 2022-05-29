@@ -11,9 +11,12 @@ using System.Windows.Forms;
 
 namespace ClientForm
 {
-    public partial class FormGroupChat : Form
+    public partial class ExFormGroupChat : Form
     {
-        public FormGroupChat()
+        public delegate void FormSwitchEventHandler(Form form);
+        public event FormSwitchEventHandler FormSwitchEvent;
+        
+        public ExFormGroupChat()
         {
             InitializeComponent();
         }
@@ -28,6 +31,21 @@ namespace ClientForm
             openFileDialog1.ShowDialog();
             string filename = openFileDialog1.FileName;
             string readfile = File.ReadAllText(filename);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormSwitchEvent(new ExFormCall());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormSwitchEvent(new ExFormProfile());
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            FormSwitchEvent(new ExFormProfile());
         }
     }
 }

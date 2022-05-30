@@ -18,8 +18,8 @@ namespace ClientForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMenuBar());
-            //Application.Run(new FormLogin());
+            //Application.Run(new FormMenuBar());
+            Application.Run(new FormLogin());
         }
     }
 }

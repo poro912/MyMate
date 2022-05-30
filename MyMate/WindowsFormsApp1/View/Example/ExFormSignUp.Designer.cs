@@ -121,6 +121,7 @@ namespace ClientForm
             this.button2.TabIndex = 1;
             this.button2.Text = "회원가입";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -132,6 +133,7 @@ namespace ClientForm
             this.button3.TabIndex = 1;
             this.button3.Text = "취소";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // LeftLayoutPanel
             // 
@@ -552,7 +554,7 @@ namespace ClientForm
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 0;
             // 
-            // SignUpForm
+            // ExFormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -560,7 +562,7 @@ namespace ClientForm
             this.ClientSize = new System.Drawing.Size(1184, 609);
             this.Controls.Add(this.LayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "SignUpForm";
+            this.Name = "ExFormSignUp";
             this.Text = "SignUpForm";
             this.Load += new System.EventHandler(this.SignUpForm_Load);
             this.LayoutPanel.ResumeLayout(false);

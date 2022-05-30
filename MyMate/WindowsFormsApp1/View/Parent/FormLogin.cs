@@ -13,7 +13,7 @@ namespace ClientForm
     
     public partial class FormLogin : Form
     {
-        private Form formMenuBar;
+        private Form currentChildForm;
 
         public FormLogin()
         {
@@ -51,16 +51,8 @@ namespace ClientForm
             //로그인 성공 시
             if (UserID.Text == "admin" && PW.Text == "1234")
             {
-                if (formMenuBar != null)
-                    formMenuBar.Close();
-
-                this.Hide();
-                
-                formMenuBar = new FormMenuBar();
-                formMenuBar.BringToFront();
-                formMenuBar.FormClosed += (s, args) => this.Show();
-                formMenuBar.ShowDialog();
-
+                FormMenuBar formMenuBar = new FormMenuBar();
+                OpenAndHide(formMenuBar);
                 PW.Text = "";
             }
             else
@@ -69,9 +61,27 @@ namespace ClientForm
             }
         }
 
+        public void OpenAndHide(Form form) {
+            if (currentChildForm != null)
+                currentChildForm.Close();
+
+            this.Hide();
+
+            currentChildForm = form;
+            currentChildForm.BringToFront();
+            currentChildForm.FormClosed += (s, args) => this.Show();
+            currentChildForm.ShowDialog();
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ExFormSignUp exFormSignUp = new ExFormSignUp();
+            OpenAndHide(exFormSignUp);
         }
     }
 }

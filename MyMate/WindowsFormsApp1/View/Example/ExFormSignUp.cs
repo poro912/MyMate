@@ -22,9 +22,16 @@ namespace ClientForm
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //제출 버튼 클릭 시
+        private void button2_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        //취소 버튼 클릭 시
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

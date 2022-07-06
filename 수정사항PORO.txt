@@ -1,0 +1,24 @@
+7/6
+work_branch
+	ignore 새로 적용 (과정중 작업 일부가 소실됐음)
+		*.v2
+		*.v3
+		*.suo
+		*/.vs/
+		*/obj/	해당 파일의 ignore 로 인해 오류가 발생된것같이 보여 확인이 필요함
+work_poro
+	솔루션 MyMate_Server 생성
+	솔루션 MyMate_Moudle 생성
+
+12주차
+Main.Message 클래스 완성
+Role 클래스 생성
+Server 클래스 기본 구조 생성
+
+
+1~11주차
+기본적인 클래스 생성
+파일구조 수정
+클래스 다이어그램 삽입
+Main.User 클래스 완성
+Communicator 클래스 생성

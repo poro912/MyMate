@@ -1,7 +1,8 @@
 *.v2
 *.v3
 *.suo
-*/.vs
+*/.vs/
+*/obj/
 
 # Prerequisites
 *.d

@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace MyMate_Clnt;
+namespace MyMate_Client;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

@@ -1,4 +1,4 @@
-﻿namespace MyMate_Clnt;
+﻿namespace MyMate_Client;
 
 public partial class AppShell : Shell
 {

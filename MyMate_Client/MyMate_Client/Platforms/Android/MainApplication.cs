@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace MyMate_Clnt;
+namespace MyMate_Client;
 
 [Application]
 public class MainApplication : MauiApplication

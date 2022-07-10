@@ -2,7 +2,6 @@
 *.v3
 *.suo
 */.vs/
-*/obj/
 
 # Prerequisites
 *.d

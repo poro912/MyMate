@@ -11,52 +11,87 @@ using System.Threading.Tasks;
 ///  해당 클래스에서는 데이터 저장만을 진행하며 전송에 대해서는 고려하지 않는다.
 /// </summary>
 
+/*
+	메모
+		채널은 메시지를 저장하는 역할을 한다.
+	메소드
+		메시지 등록
+		메시지 정보 반환
+		채널명 변경
+		채널코드 획득
+*/
+
+
 namespace MyMate_Module
 {
 	public abstract class Channel
 	{
-		private long        code;	
-		private String      name;
-		public List<Message>    messages;
+		private long code;
+		private String name;
+		public List<Message> messages;
+		public DateTime ChangeTime;         // 최근 변경사항이 발생한 시각을 저장
 
+		// 프로퍼티
 		public long Code { get; }
 		public String Name { get; }
 
-		/*
-		public abstract bool SendMessage(Message message);
-		
-		 *		클라이언트에서 구현
-		 * 		public abstract bool ModifyContext();
-		 * 		public abstract bool ModifyContext(String context);
-		 * 		public abstract bool ModifyContext(StringBuilder context);
-		
-		public abstract bool ReceiveMessage(
-			Message			message
-			);
-		*/
-		
+		// 생성자
 		/// <summary>
-		/// 수신한 메시지를 등록,하는 메소드
+		/// 코드값만 지정된 경우 호출될 생성자 
+		/// default라는 이름으로 생성된다.
 		/// </summary>
-		/// <param name="message"></param>
-		/// <returns></returns>
-		public abstract bool regist_Message( Message message );
+		/// <param name="code"> 채널 코드 값 </param>
+		public Channel(long code) { init(code, "default"); }
+		/// <summary>
+		/// 코드값과 이름이 지정된 경우의 생성자
+		/// </summary>
+		/// <param name="code"></param>
+		/// <param name="name"></param>
+		public Channel(long code, String name) { init(code, name); }
 
-		// 저장된 메시지들을 읽어오는 메소드
-		public abstract List<Message> GetMessages();
+		private void init(
+			long		code,
+			String		name)
+		{
+			this.code = code;
+			this.name = name;
+			this.messages = new List<Message>();
+			this.ChangeTime = DateTime.Now;
+		}
+
 
 		/// <summary>
-		/// 새로운 메시지가 있는지 확인하는 메소드
-		/// 이 메소드는 각 모듈에서 작성해야 할것으로 보인다.
+		/// 메시지를 저장하는 메소드
 		/// </summary>
-		/// <returns></returns>
-		public abstract bool CheckNewMessage();
-
-		public abstract bool Rename(
-			String			name
-			);
+		/// <param name="message">등록할 메시지</param>	
+		public void save_Message(Message message) { this.messages.Add(message); }
 
 
+		public List<Message> retMessages() { return messages; }
+		public List<Message> retMessages(DateTime date)
+		{
+			return messages;
+		}
+		public List<Message> retMessages(
+			int			year,
+			int			month,
+			int			day)
+		{
+			return messages;
+		}
+
+		public bool checkChange(DateTime date)
+        {
+			if(this.ChangeTime == date) return true;
+			else return false;
+        }
+		private void setChangeTime() { }
+
+
+		public bool Rename(String name)
+		{
+			this.name = name;
+			return true;
+		}
 	}
-
 }

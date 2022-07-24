@@ -1,0 +1,45 @@
+//네임스페이스 추가
+using MySql.Data.MySqlClient;
+// Mysql기반의 데이터 베이스 기술을 사용하기 위해 필요한 정보들을 가지고 있음
+
+
+
+//접속시 필요한 정보들 전역변수로 선언 하여 사용 
+string Conn = "SERVER = localhost;port = 3306;user = root; DATABASE = db_server; password = 12345; SSLMODE = none";
+
+//검색
+using (MySqlConnection conn = new MySqlConnection(Conn))
+{           
+        DataSet ds = new DataSet();
+        string sql = "SELECT * FROM ~";
+        MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+        adpt.Fill(ds, "~");
+}
+                                      
+
+//삽입
+using (MySqlConnection conn = new MySqlConnection(Conn))
+{
+     conn.Open();
+     MySqlCommand msc = new MySqlCommand(login_cmd, conn);
+     msc.ExecuteNonQuery();
+}
+//회원가입시 
+//string login_cmd = "insert into user_tb(U_code,U_id,U_password,U_name,U_phone) values(" + a + ",\'" + user_id + "\',\'" + user_pwd + "\',\'" + user_name + "\',\'" + user_phone + "\'";
+ 
+
+//수정구문
+using (MySqlConnection conn = new MySqlConnection(Conn))
+{
+     conn.Open();
+     MySqlCommand msc = new MySqlCommand("UPDATE ~ SET ~", conn);
+     msc.ExecuteNonQuery();
+}
+
+//삭제구문
+using (MySqlConnection conn = new MySqlConnection(Conn))
+{
+     conn.Open();
+     MySqlCommand msc = new MySqlCommand("DELETE FROM ~", conn);
+     msc.ExecuteNonQuery();
+}

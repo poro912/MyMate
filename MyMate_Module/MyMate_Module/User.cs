@@ -8,25 +8,27 @@ using System.Threading.Tasks;
 /// 유저에 대한 클래스이다.
 /// 유저의 정보를 저장한다.
 /// 
-/// 
 /// </summary>
 
 namespace MyMate_Module
 {
 	public abstract class User
 	{
-		private long code;
-		private String id;
-		private String name;
-		private String nick;
-		private uint tag;
+		private long code;		// 유저코드 유저를 서버에 등록하기위한 코드 (비공개)
+		private String id;		// 유저의 id
+		private String name;	// 유저의 이름
+		private String nick;	// 유저가 붙이는 유저의 닉네임
+		private uint tag;		// 유저 태그번호 같은 이름의 사람을 구별하기위한 일련의 번호
 
 		public long Code { get; }
 		public String Id { get; }
 		public String Name { get; }
+		public String Nick { get; }
 		
+
+		// 생성자
 		/// <summary>
-		/// User 클래스의 생성자
+		/// 
 		/// </summary>
 		/// <param name="code">		유저 코드(식별자) </param>
 		/// <param name="id">		유저 id </param>
@@ -54,9 +56,12 @@ namespace MyMate_Module
 		/// 클라이언트는 서버에 바꿀 닉네임을 보내야함
 		/// </summary>
 		/// <param name="nick"> 변경될 닉네임 </param>
-		public abstract void ReplaceNick(
+		public void ReplaceNick(
 			String nick
-		);
+		)
+        {
+			this.nick = nick;
+        }
 
 		//해당 메소드는 User클래스에 어울리지 않는다. 다른 클래스로의 이동을 고려하는 중이다.
 		/// <summary>

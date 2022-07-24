@@ -1,0 +1,177 @@
+새롭게 만들어지는 코드 정리 부분
+
+1. 유저 테이블 
+변경점 및 추가사항
+유저 코드 부분으 제외한 모든 부분 전부 varchar 형을 채용
+datetime 과 time  그리고 date 차이
+date = 년 월 일 
+tim 시간 분 초 
+date time = 년월일 시간 분 초 저장
+추가 사항
+ 	첫째 id는 유니크하다 생각
+ 	둘쨰 핸드폰번호도 유니크해야 한다 생각
+create table user_tb(
+U_code int,
+U_id varchar(12) not null unique,
+U_password varchar(15) not null,
+ U_Nickname varchar(12) ,
+ U_name varchar(10) not null,
+ U_phone varchar(15) not null unique,
+ U_login_time datetime not null,
+primary key(U_code)
+);
+
+2. 친구 테이블 
+변경점 및 추가사항 
+기존 친구테이블을 두가지로 나눴던것을 하나로 합치게 되었으며 합치면서
+ fr_code와 U_code 두가지가 기본키가 되었다
+create table FRIEND_TB(
+  U_code int ,
+   FR_code int,
+FR_name varchar(10) not null, 
+  FR_Nickname varchar(12),
+  FR_hide bool,
+  FR_block bool,
+Primary key(U_code,FR_code),
+ foreign key(U_code) references USER_TB(U_code)
+);
+
+3. 유저 체크리스및 켈린더 테이블
+체크리스트부터 
+변경점 및 추가사항
+content = 체크리스트의 내용이다
+name = 체크리스트의 이름이며 따로 지정가능하게 하거나
+체크리스트 내용의 앞글자 5~6개를 가져오는 형태로 하면 좋을듯
+추가로 체크리스트 또한 하나의 테이블로 합치게 되었으며
+기본키를 u_code와 U_ck_code로 설정함
+또한 시간부분을 date time을 사용하여
+년 월일 시간분초 까지 저장 가능한 형태로 만듬
+create table U_ck_tb(
+U_CK_code int,
+U_code int,
+U_CK_name varchar(15),
+  U_CK_content varchar(500),
+  U_CK_time datetime,
+  U_CK_private bool,
+primary key(U_code,U_CK_code),
+ foreign key(U_code) references USER_TB(U_code)
+);
+
+켈린더
+켈린더 또한 체크리스트와 내용이 같음
+create table U_CL_tb(
+U_CL_code int,
+U_code int,
+U_CL_name varchar(15),
+  U_CL_content varchar(500),
+  U_CL_time datetime,
+  U_CL_private bool,
+primary key(U_code,U_CL_code),
+ foreign key(U_code) references USER_TB(U_code)
+);
+
+
+4. 서버 테이블 
+서버 테이블은 따로 변경점이 없음
+create table SERVER_TB(
+S_code int,
+S_join_code int,
+S_join_URL varchar(100),
+primary key(S_code)
+);
+
+5. 서버 와 유저의 연결 테이블
+둘다 기본키를 가지게 설정해봤음
+
+create table server_join_tb(
+S_code int,
+U_code int ,
+primary key(U_code,s_code),
+foreign key(S_code) references SERVER_TB(S_code),
+ foreign key(U_code) references USER_TB(U_code)
+);
+
+6.서버 권한 테이블
+여기서 서버와 바로 연결이 된 테이블로 
+s_code와 S_perm_code가 기본키를 가짐
+
+create table S_perm_TB(
+  S_code int ,
+  S_perm_code int,
+  S_perm_001 int ,
+  S_perm_002 int ,
+  S_perm_003 int, 
+primary key(S_perm_code,s_code),
+foreign key(S_code) references SERVER_TB(S_code)
+);
+
+7. 채널 테이블 
+변경사항 일단은 없음
+create table Chennel_TB(
+CH_code int,
+CH_name varchar(10),
+  CH_perm_code int,
+primary key(CH_code)
+);
+
+8. 채널과 서버의 연결 테이블 
+둘다 기본키를 가지게 만듬
+create Table Ch_join_TB(
+  CH_code int,
+  S_code int,
+primary key(S_code,CH_code),
+foreign key(cH_code) references Chennel_TB(cH_code),
+foreign key(S_code) references SERVER_TB(S_code)
+);
+
+9. 채널의 권한 테이블 
+기존방식에서 하나로 합치고 ch_code와  cH_perm_code가 기본키를 가짐
+
+create Table CH_perm_TB(
+	CH_code int,
+  CH_perm_code int,
+  CH_perm_001 int,
+  CH_perm_002 int,
+  CH_perm_003 int,
+primary  key(CH_code, CH_perm_code),
+foreign key(cH_code) references Chennel_TB(cH_code)
+);
+
+10. 채널 체크리스트와 켈린더 테이블
+체크리스트 
+create Table CH_CK_info_TB(
+  CH_code int,
+ CH_CK_code int,
+ CH_CK_name varchar(15),
+  CH_CK_content varchar(500),
+  CH_CK_time datetime,
+  CH_CK_private bool,
+primary key(CH_code,CH_CK_code),
+foreign key(cH_code) references Chennel_TB(cH_code)
+);
+켈린더 
+create Table CH_CL_info_TB(
+  CH_code int,
+ CH_CL_code int,
+ CH_CL_name varchar(15),
+  CH_CL_content varchar(500),
+  CH_CL_time datetime,
+  CH_CL_private bool,
+primary key(CH_code,CH_CL_code),
+foreign key(cH_code) references Chennel_TB(cH_code)
+);
+
+11. 메세지 테이블
+합쳐지면서 
+CH_code, msg_code, U_code가 기본키를 가진 하나의 테이블로 합쳐짐 또한 채팅 내역은 파일 형태로 저장하는 방식을 상용한다함
+create Table CH_msg_TB(
+  CH_code int,
+  MSG_code int, 
+  U_code   int,
+MSG_time datetime,
+primary key(Ch_code, msg_code, U_code),
+foreign key(CH_code) references Chennel_TB(CH_code),
+foreign key(U_code) references USER_TB(U_code)
+);
+
+

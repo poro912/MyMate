@@ -10,16 +10,21 @@ namespace ServerModule
     {
 		// connect 메서드가 db 사용자, 관리자를 분리해서 접속하는 메서드가 맞나?
 
-		MySqlConnection AdminConnect()
+		MySqlConnection Connect()
+		{ 
+		
+		}
+
+		MySqlConnection AdminConnect( )
 		{
 
 			// db connection을 만들기위한 변수들
 			string server = "localhost";
 			int port = 3306;
-			string user = "root";
-			string database = "db_server";
-			string password = "12345";
-			string sslmode = "none";
+				string user = "root";
+				string database = "db_server";
+				string password = "12345";
+				string sslmode = "none";
 
 			// db connection
 			string conn = $"SERVER = {server};port = {port};user = {user}; DATABASE = {database}; password = {password}; SSLMODE = {sslmode}";
@@ -31,7 +36,7 @@ namespace ServerModule
 			return adminConn;
 		}
 
-		MySqlConnection UserConnect()
+		MySqlConnection UserConnect( )
 		{
 
 			// db connection을 만들기위한 변수들
@@ -54,7 +59,6 @@ namespace ServerModule
 
 		bool ConnClose(MySqlConnection conn)    // 반환형을 bool로 해야할까? -> void가 편할 것 같다는 생각?
 		{
-
 			bool closeConn = true;
 
 			try
@@ -68,14 +72,20 @@ namespace ServerModule
 			catch (Exception e)
 			{
 				closeConn = false;
+
 			}
+
 			conn = null;
+
 			return closeConn;
 		}
-
-		bool SqlInsert(string table, string value, MySqlConnection conn)
+		
+		bool SqlInsert(
+			string			table,		//설명
+			string			value,
+			MySqlConnection conn)	// 취향것
 		{
-			bool okQuery = false;
+			bool okQuery = false;	// 디폴트 트루
 
 			try
 			{
@@ -94,13 +104,14 @@ namespace ServerModule
 			return okQuery;
 		}
 
-		bool SqlSelect(string table, string condition, MySqlConnection conn)    // 반환형 bool이 맞는가 -> dataset을 받을 자료형이여야 할 것 같음
+		// 반환형 bool이 맞는가 -> dataset을 받을 자료형이여야 할 것 같음
+		bool SqlSelect(string table, string condition, MySqlConnection conn)    
 		{
-			bool okQuery = false;
+			//디폴트 트루
+			bool okQuery = false;	
 
 			try
 			{
-				
 				string query = $"SELECT * FROM {table} WHERE {condition}";
 				DataSet ds = new DataSet();
 
@@ -153,6 +164,8 @@ namespace ServerModule
 			bool okSignIn = false;
 			bool okInsert = false;
 
+
+			//do while문 활용
 			// 회원가입 정보의 유효성 검사
 			if (id != null && pw != null && name != null && nick != null && phone != null)
 			{
@@ -177,7 +190,7 @@ namespace ServerModule
 
 			try
 			{
-				
+				// insert 메서드 호출
 				string query = $"INSERT INTO user_tb VALUES ('{id}','{pw}','{name}','{nick}','{phone}')";
 				DataSet ds = new DataSet();
 
@@ -195,9 +208,10 @@ namespace ServerModule
 		bool Login(string id, string pw)
 		{
 			// 프로그램 관리자, 사용자 분류
-
 			bool login = false;
 
+			//if 문 하나로 처리, 어디민 분리
+			//user로그인 위주로 구성
 			if (id == "admin" && pw == "1234")  // 관리자 계정 로그인
 			{
 				MySqlConnection conn = AdminConnect();

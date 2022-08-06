@@ -8,85 +8,98 @@ namespace ServerModule
 {
     class SQL
     {
-		// connect 메서드가 db 사용자, 관리자를 분리해서 접속하는 메서드가 맞나?
-
-		MySqlConnection Connect()
-		{ 
-		
-		}
-
-		MySqlConnection AdminConnect( )
+		/// <summary>
+        /// DB에 접속하기 위해서 db connection 객체를 생성하는 메서드
+        /// </summary>
+        /// <param name="user">DB 계정</param>
+        /// <param name="database">DB 이름</param>
+        /// <param name="password">DB 비밀번호</param>
+        /// <param name="sslmode">DB sslmode</param>
+        /// <returns></returns>
+		private MySqlConnection Connect(
+            string          user,
+            string          database,
+            string          password,
+            string          sslmode
+        )
 		{
+            // DB 서버와 포트번호
+            string server = "localhost";
+            int port = 3306;
 
-			// db connection을 만들기위한 변수들
-			string server = "localhost";
-			int port = 3306;
-				string user = "root";
-				string database = "db_server";
-				string password = "12345";
-				string sslmode = "none";
+            // DB connection 객체를 생성하기 위한 문자열
+            string conn = $"SERVER = {server};port = {port};user = {user}; DATABASE = {database}; password = {password}; SSLMODE = {sslmode}";
 
-			// db connection
-			string conn = $"SERVER = {server};port = {port};user = {user}; DATABASE = {database}; password = {password}; SSLMODE = {sslmode}";
+            // DB connection 객체 생성
+            MySqlConnection Conn = new MySqlConnection(conn);
 
-			MySqlConnection adminConn = new MySqlConnection(conn);
+            // conn 객체를 open 상태로 만들어줌(오픈상태가 어떤 상태인지 설명해주면 좋을 것 같다)
+            Conn.Open();
 
-			adminConn.Open();
+            return conn;
+        }
+
+        /// <summary>
+        /// DB를 admin 계정으로 접속하기 위한 db connection 객체를 생성하는 메서드
+        /// </summary>
+        /// <returns></returns>
+		private MySqlConnection AdminConnect( )
+		{
+            // DB admin 계정으로 connection 객체 만들기
+            adminConn = Connect("admin","db_server","12345","none");
 
 			return adminConn;
 		}
 
-		MySqlConnection UserConnect( )
+        /// <summary>
+        /// DB를 user 계정으로 접속하기 위한 db connection 객체를 생성하는 메서드
+        /// </summary>
+        /// <returns></returns>
+        private MySqlConnection UserConnect( )
 		{
+            // DB user 계정으로 connection 객체 만들기
+            adminConn = Connect("user", "db_server", "12345", "none");
 
-			// db connection을 만들기위한 변수들
-			string server = "localhost";
-			int port = 3306;
-			string user = "user";
-			string database = "db_server";
-			string password = "12345";
-			string sslmode = "none";
-
-			// db connection
-			string conn = $"SERVER = {server};port = {port};user = {user}; DATABASE = {database}; password = {password}; SSLMODE = {sslmode}";
-
-			MySqlConnection userConn = new MySqlConnection(conn);
-
-			userConn.Open();
-
-			return userConn;
+            return adminConn;
 		}
 
-		bool ConnClose(MySqlConnection conn)    // 반환형을 bool로 해야할까? -> void가 편할 것 같다는 생각?
+        /// <summary>
+        /// DB connection 객체가 close 상태인지 확인하는 메서드
+        /// </summary>
+        /// <param name="conn">확인하려는 DB connection 객체</param>
+        /// <returns></returns>
+		private bool ConnClose(MySqlConnection conn)
 		{
-			bool closeConn = true;
-
 			try
 			{
 				if (conn != null)
 				{
 					conn.Close();
-					Console.WriteLine("DB 클로즈");
 				}
 			}
 			catch (Exception e)
 			{
-				closeConn = false;
-
+                return false;
 			}
 
 			conn = null;
 
-			return closeConn;
+			return true;
 		}
-		
-		bool SqlInsert(
-			string			table,		//설명
-			string			value,
-			MySqlConnection conn)	// 취향것
-		{
-			bool okQuery = false;	// 디폴트 트루
 
+        /// <summary>
+        /// DB에 Insert 구문을 수행하는 메서드
+        /// </summary>
+        /// <param name="table">Insert하려는 테이블</param>
+        /// <param name="value">Insert할때 조건절</param>
+        /// <param name="conn">DB connection 객체</param>
+        /// <returns></returns>
+        private bool SqlInsert(
+			string			table,
+			string			value,
+			MySqlConnection conn
+         )
+		{
 			try
 			{
 				string query = $"INSERT INTO {table} VALUES ({value})";
@@ -94,22 +107,29 @@ namespace ServerModule
 
 				MySqlCommand msc = new MySqlCommand(query, conn);
 				msc.ExecuteNonQuery();
-				okQuery = true;
 			}
 			catch (Exception e)
 			{
-				// sql 예외처리
+                // sql 예외처리
+               return false;
 			}
 
-			return okQuery;
+			return true;
 		}
 
-		// 반환형 bool이 맞는가 -> dataset을 받을 자료형이여야 할 것 같음
-		bool SqlSelect(string table, string condition, MySqlConnection conn)    
+        /// <summary>
+        /// DB에 Select 구문을 수행하는 메서드
+        /// </summary>
+        /// <param name="table">Select하려는 테이블</param>
+        /// <param name="condition">Select할때 조건절</param>
+        /// <param name="conn">DB connection 객체</param>
+        /// <returns></returns>
+        private DataTable SqlSelect(
+            string          table,
+            string          condition,
+            MySqlConnection conn
+        )    
 		{
-			//디폴트 트루
-			bool okQuery = false;	
-
 			try
 			{
 				string query = $"SELECT * FROM {table} WHERE {condition}";
@@ -121,73 +141,108 @@ namespace ServerModule
 			}
 			catch (Exception e)
 			{
-				// sql 예외처리
+                // sql 예외처리
+                return false;
 			}
-
-			/*
-			try
-			{
-				MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
-				MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
-				mySqlDataTable.Load(mySqlDataReader);
-
-				StringBuilder output = new StringBuilder();
-				foreach (DataColumn col in mySqlDataTable.Columns)
-				{
-					output.AppendFormat("{0} ", col);
-				}
-				output.AppendLine();
-				foreach (DataRow page in mySqlDataTable.Rows)
-				{
-					foreach (DataColumn col in mySqlDataTable.Columns)
-					{
-						output.AppendFormat("{0} ", page[col]);
-					}
-					output.AppendLine();
-
-				}
-				Console.WriteLine(output.ToString());
-
-				mySqlDataReader.Close();
-			}
-			catch (Exception e)
-			{
-				// sql 예외
-			}
-			*/
-
-			return okQuery;
+ 
+			return true;
 		}
 
-		bool SignIn(string id, string pw, string name, string nick, string phone, MySqlConnection conn)
+        /// <summary>
+        /// 회원가입을 위한 데이터들의 유효성 검사를 하여 회원가입하는 메서드
+        /// </summary>
+        /// <param name="id">회원 id</param>
+        /// <param name="pw">회원 password</param>
+        /// <param name="name">회원 이름</param>
+        /// <param name="nick">회원 별명</param>
+        /// <param name="phone">회원 전화번호</param>
+        /// <param name="conn">DB connection 객체</param>
+        /// <returns></returns>
+        private bool SignIn(
+            string          id,
+            string          pw,
+            string          name,
+            string          nick,
+            string          phone,
+            MySqlConnection conn
+        )
 		{
+            // 예외 경우일 경우 do-while 문을 탈출하여 return 하므로 디폴트를 false로 설정
 			bool okSignIn = false;
-			bool okInsert = false;
 
+            do
+            {
+                // 매개변수 값들의 null 체크
+                if (id == null)
+                {
+                    break;
+                }
+                if (pw == null)
+                {
+                    break;
+                }
+                if (name == null)
+                {
+                    break;
+                }
+                if (nick == null)
+                {
+                    break;
+                }
+                if (phone == null)
+                {
+                    break;
+                }
 
-			//do while문 활용
-			// 회원가입 정보의 유효성 검사
-			if (id != null && pw != null && name != null && nick != null && phone != null)
-			{
-				okSignIn = true;
-			}
-			else if (id != "" && pw != "" && name != "" && nick != "" && phone != "")
-			{
-				okSignIn = true;
-			}
+                // 매개변수 값들의 공백을 체크
+                if (id == "")
+                {
+                    break;
+                }
+                if (pw == "")
+                {
+                    break;
+                }
+                if (name == "")
+                {
+                    break;
+                }
+                if (nick == "")
+                {
+                    break;
+                }
+                if (phone == "")
+                {
+                    break;
+                }
 
-			if (okSignIn)
-			{
-				okInsert = SignInInsert(id, pw, name, nick, phone, conn);
-			}
+                // 매개변수 값들의 이상이 없다면 수행 되는 과정
+                okSignIn = SignInInsert(id, pw, name, nick, phone, conn);
+
+            } while (true);
 
 			return okSignIn;
 		}
 
-		bool SignInInsert(string id, string pw, string name, string nick, string phone, MySqlConnection conn)
+        /// <summary>
+        /// 회원가입을 위해서 DB에 Insert 문을 통해서 사용자 정보 등록하는 메서드
+        /// </summary>
+        ///  <param name="id">회원 id</param>
+        /// <param name="pw">회원 password</param>
+        /// <param name="name">회원 이름</param>
+        /// <param name="nick">회원 별명</param>
+        /// <param name="phone">회원 전화번호</param>
+        /// <param name="conn">DB connection 객체</param>
+        /// <returns></returns>
+        private bool SignInInsert(
+            string          id,
+            string          pw,
+            string          name,
+            string          nick,
+            string          phone,
+            MySqlConnection conn
+        )
 		{
-			bool okQuery = false;
-
 			try
 			{
 				// insert 메서드 호출
@@ -196,23 +251,51 @@ namespace ServerModule
 
 				MySqlCommand msc = new MySqlCommand(query, conn);
 				msc.ExecuteNonQuery();
-				okQuery = true;
 			}
 			catch (Exception e)
 			{
-				// sql 예외 처리
+                // sql 예외 처리
+                return false;
 			}
-			return okQuery;
+			return true;
 		}
 
-		bool Login(string id, string pw)
+        /// <summary>
+        /// DB에서 회원 id, pw를 가져와 비교 확인 후 로그인 시켜주는 메서드
+        /// </summary>
+        /// <param name="id">회원이 입력한 id</param>
+        /// <param name="pw">회원이 입력한 pw</param>
+        /// <returns></returns>
+        private bool Login(string id, string pw)
 		{
 			// 프로그램 관리자, 사용자 분류
 			bool login = false;
 
-			//if 문 하나로 처리, 어디민 분리
-			//user로그인 위주로 구성
-			if (id == "admin" && pw == "1234")  // 관리자 계정 로그인
+            MySqlConnection conn = UserConnect();
+
+            try
+            {
+                MySqlConnection conn = UserConnect();
+
+                // sqlSelect()
+
+                if (!ConnClose(conn))
+                {
+                    Exception e;
+                }
+
+            }
+            catch (Exception e)
+            {
+               
+                return false;
+            }
+
+
+            /*
+            //if 문 하나로 처리, 어디민 분리
+            //user로그인 위주로 구성
+            if (id == "admin" && pw == "1234")  // 관리자 계정 로그인
 			{
 				MySqlConnection conn = AdminConnect();
 				try
@@ -265,11 +348,13 @@ namespace ServerModule
 					//conn 객체 예외처리
 				}
 			}
+            */
 
-			return login;
+			return true;
 		}
 
-		int CheckPw(string id, string pw)
+        // 미정
+        private int CheckPw(string id, string pw)
 		{
 			int check = 0;
 
@@ -296,7 +381,7 @@ namespace ServerModule
 			return check;
 		}
 
-		DataTable SelectPw(string id, MySqlConnection conn)
+        private DataTable SelectPw(string id, MySqlConnection conn)
 		{
 
 			//MySqlDataReader dbr;
@@ -339,7 +424,4 @@ namespace ServerModule
 			//return dbr["U_password"].ToString();    // 비밀번호만 리턴
         }
 	}
-
-
-
 }

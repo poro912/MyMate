@@ -72,6 +72,7 @@ namespace ServerModule
 		{
 			try
 			{
+                // conn의 상태를 확인
 				if (conn != null)
 				{
 					conn.Close();
@@ -102,9 +103,10 @@ namespace ServerModule
 		{
 			try
 			{
-				string query = $"INSERT INTO {table} VALUES ({value})";
-				DataSet ds = new DataSet();
+                // Insert 문을 수행 쿼리 
+                string query = $"INSERT INTO {table} VALUES ({value})";
 
+                // command 객체 생성 및 ExecuteNonQuery 메서드 수행 (메서드가 역할 설명 추가)
 				MySqlCommand msc = new MySqlCommand(query, conn);
 				msc.ExecuteNonQuery();
 			}
@@ -130,22 +132,27 @@ namespace ServerModule
             MySqlConnection conn
         )    
 		{
+            // Select문을 반환하기 위한 데이터 테이블
+            var datatable = new DataTable();
+
 			try
 			{
+                // Select 문을 수행 쿼리
 				string query = $"SELECT * FROM {table} WHERE {condition}";
-				DataSet ds = new DataSet();
 
-				MySqlDataAdapter adpt = new MySqlDataAdapter(query, conn);
-				adpt.Fill(ds, "~");
-				okQuery = true;
+                // command, datareader 객체 생성 및 datatable의 Load 메서드 수행 (메서드 역할 설명 추가)
+                MySqlcommand msc = new MySqlcommand(query,conn);
+                MySqlDataReader msdr = msc.ExecuteReader();
+                datatable.Load(msdr);
+				
 			}
 			catch (Exception e)
 			{
                 // sql 예외처리
-                return false;
+                
 			}
  
-			return true;
+			return datatable;
 		}
 
         /// <summary>
@@ -243,21 +250,13 @@ namespace ServerModule
             MySqlConnection conn
         )
 		{
-			try
-			{
-				// insert 메서드 호출
-				string query = $"INSERT INTO user_tb VALUES ('{id}','{pw}','{name}','{nick}','{phone}')";
-				DataSet ds = new DataSet();
+            // try문을 사용할지 생각
 
-				MySqlCommand msc = new MySqlCommand(query, conn);
-				msc.ExecuteNonQuery();
-			}
-			catch (Exception e)
-			{
-                // sql 예외 처리
-                return false;
-			}
-			return true;
+            string value = $"'{id}','{pw}','{name}','{nick}','{phone}'";
+
+            bool okInsert = SqlInsert("user_tb",value,conn);
+			
+			return okInsert;
 		}
 
         /// <summary>
@@ -268,17 +267,34 @@ namespace ServerModule
         /// <returns></returns>
         private bool Login(string id, string pw)
 		{
-			// 프로그램 관리자, 사용자 분류
-			bool login = false;
+			bool login = true;
 
-            MySqlConnection conn = UserConnect();
-
+            // try문을 사용해야할지 생각
             try
             {
                 MySqlConnection conn = UserConnect();
 
-                // sqlSelect()
+                // sqlSelect() 메서드
+                DataTable dt = SqlSelect("user_tb", $"U_id = '{ id }'",conn);
 
+                // id 일치 확인
+                do
+                {
+                    if (id != dt.Rows[0]["U_id"])
+                    {
+                        login = false;
+                        break;
+                    }
+
+                    // pw 일치 확인
+                    if (pw == dt.Rows[0]["U_password"])
+                    {
+                        login = false;
+                        break;
+                    }
+
+                } while (true);
+                
                 if (!ConnClose(conn))
                 {
                     Exception e;
@@ -288,74 +304,16 @@ namespace ServerModule
             catch (Exception e)
             {
                
-                return false;
+                return login;
             }
 
-
-            /*
-            //if 문 하나로 처리, 어디민 분리
-            //user로그인 위주로 구성
-            if (id == "admin" && pw == "1234")  // 관리자 계정 로그인
-			{
-				MySqlConnection conn = AdminConnect();
-				try
-				{
-					string query = "SELECT * FROM user_tb WHERE U_id = '{ id }'";
-					
-
-					MySqlCommand sql_cmd = new MySqlCommand(query, conn);
-					MySqlDataReader dbr = sql_cmd.ExecuteReader();
-					while (dbr.Read())
-					{
-						if (id == (string)dbr["U_id"] && pw == (string)dbr["U_password"])
-						{
-							login = true;
-						}
-					}
-				}
-				catch (Exception e)
-				{
-					// sql 예외처리	
-				}
-				if (!ConnClose(conn))
-				{
-					//conn 객체 예외처리
-				}
-			}
-			else    //일반 사용자 계정 로그인
-			{
-				MySqlConnection conn = UserConnect();
-				try
-				{
-					string query = $"SELECT * FROM user_tb WHERE U_id = '{ id }'";
-
-					MySqlCommand sql_cmd = new MySqlCommand(query, conn);
-					MySqlDataReader dbr = sql_cmd.ExecuteReader();
-					while (dbr.Read())
-					{
-						if (id == (string)dbr["U_id"] && pw == (string)dbr["U_password"])
-						{
-							login = true;
-						}
-					}
-				}
-				catch (Exception e)
-				{
-					// sql 예외처리
-				}
-				if (!ConnClose(conn))
-				{
-					//conn 객체 예외처리
-				}
-			}
-            */
-
-			return true;
+			return login;
 		}
 
         // 미정
         private int CheckPw(string id, string pw)
 		{
+            /*
 			int check = 0;
 
 			MySqlConnection conn = UserConnect();
@@ -377,51 +335,16 @@ namespace ServerModule
 			{
 				check = -1;
 			}
+            */
 
 			return check;
 		}
 
-        private DataTable SelectPw(string id, MySqlConnection conn)
+        private string SelectPw(string id, MySqlConnection conn)
 		{
+            string selectPw;
 
-			//MySqlDataReader dbr;
-
-			//try
-			//{
-			//	string query = $"SELECT U_password FROM user_tb WHERE U_id = '{ id }'";
-				
-
-			//	MySqlCommand sql_cmd = new MySqlCommand(query, conn);
-			//	dbr = sql_cmd.ExecuteReader();
-
-
-			//}
-			//catch (Exception e)
-			//{
-			//	// sql 예외처리
-			//}
-
-			var mySqlDataTable = new DataTable();
-			string query = $"SELECT U_password FROM user_tb WHERE U_id = '{ id }'";
-
-			
-			try
-			{
-				MySqlCommand mySqlCommand = new MySqlCommand(query, conn);
-				MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
-				mySqlDataTable.Load(mySqlDataReader);
-
-			}
-			catch (Exception e)
-			{
-				// sql 예외
-			}
-
-		
-			
-			return mySqlDataTable;
-
-			//return dbr["U_password"].ToString();    // 비밀번호만 리턴
+            return selectPw;
         }
 	}
 }

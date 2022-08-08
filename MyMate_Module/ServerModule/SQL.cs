@@ -70,17 +70,10 @@ namespace ServerModule
         /// <returns></returns>
 		private bool ConnClose(MySqlConnection conn)
 		{
-			try
+            // conn의 상태를 확인
+			if (conn != null)
 			{
-                // conn의 상태를 확인
-				if (conn != null)
-				{
-					conn.Close();
-				}
-			}
-			catch (Exception e)
-			{
-                return false;
+				conn.Close();
 			}
 
 			conn = null;
@@ -106,13 +99,19 @@ namespace ServerModule
                 // Insert 문을 수행 쿼리 
                 string query = $"INSERT INTO {table} VALUES ({value})";
 
-                // command 객체 생성 및 ExecuteNonQuery 메서드 수행 (메서드가 역할 설명 추가)
-				MySqlCommand msc = new MySqlCommand(query, conn);
-				msc.ExecuteNonQuery();
+                // command : 쿼리를 수행하는 객체
+                MySqlCommand msc = new MySqlCommand(query, conn);
+
+                // ExecuteNonQuery() 메서드는 쿼리의 영향을 받은 행의 수를 반환 하는 메서드
+                if (msc.ExecuteNonQuery() == 0)
+                {
+                    Exception NODATAEXCEPTION;
+                }
 			}
-			catch (Exception e)
-			{
-                // sql 예외처리
+			catch (Exception NODATAEXCEPTION)
+            {
+                // Insert문이 수행되지 않았을 경우
+
                return false;
 			}
 
@@ -140,16 +139,28 @@ namespace ServerModule
                 // Select 문을 수행 쿼리
 				string query = $"SELECT * FROM {table} WHERE {condition}";
 
-                // command, datareader 객체 생성 및 datatable의 Load 메서드 수행 (메서드 역할 설명 추가)
+                // command : 쿼리를 수행하는 객체
+                // datareader : 쿼리 수행 결과를 가져오는 객체
                 MySqlcommand msc = new MySqlcommand(query,conn);
-                MySqlDataReader msdr = msc.ExecuteReader();
-                datatable.Load(msdr);
-				
+
+                if (msc.ExecuteNonQuery() == 0)
+                {
+                    Exception NODATAEXCEPTION;
+                }
+                else
+                { 
+                    // ExecuteReader() 메서드는 DataReader를 만들어줌
+                    MySqlDataReader msdr = msc.ExecuteReader();
+
+                    // Load() 메서드는 DataReader를 통해 DataTable을 채움
+                    datatable.Load(msdr);
+                }
 			}
-			catch (Exception e)
+			catch (Exception NODATAEXCEPTION)
 			{
-                // sql 예외처리
-                
+                // Select문이 수행되지 않았을 경우
+
+                return null;
 			}
  
 			return datatable;
@@ -250,12 +261,30 @@ namespace ServerModule
             MySqlConnection conn
         )
 		{
-            // try문을 사용할지 생각
-
+            // Insert values 절
             string value = $"'{id}','{pw}','{name}','{nick}','{phone}'";
 
-            bool okInsert = SqlInsert("user_tb",value,conn);
-			
+            try
+            {
+                // DB 연결
+                MySqlConnection conn = UserConnect();
+
+                // Insert문 수행
+                bool okInsert = SqlInsert("user_tb", value, conn);
+
+                // DB 닫기
+                if (!ConnClose(conn))
+                {
+                    Exception NOTCLOSEEXCEPTION;
+                }
+            }
+            catch (Exception NOTCLOSEEXCEPTION)
+            {
+                // conn close를 실패했을 때
+
+                return false;
+            }
+
 			return okInsert;
 		}
 
@@ -269,17 +298,17 @@ namespace ServerModule
 		{
 			bool login = true;
 
-            // try문을 사용해야할지 생각
             try
             {
+                // DB 연결
                 MySqlConnection conn = UserConnect();
 
-                // sqlSelect() 메서드
+                // Select문 수행
                 DataTable dt = SqlSelect("user_tb", $"U_id = '{ id }'",conn);
 
-                // id 일치 확인
                 do
                 {
+                    // id 일치 확인
                     if (id != dt.Rows[0]["U_id"])
                     {
                         login = false;
@@ -287,23 +316,25 @@ namespace ServerModule
                     }
 
                     // pw 일치 확인
-                    if (pw == dt.Rows[0]["U_password"])
+                    if (pw != dt.Rows[0]["U_password"])
                     {
                         login = false;
                         break;
                     }
 
                 } while (true);
-                
+
+                // DB 닫기
                 if (!ConnClose(conn))
                 {
-                    Exception e;
+                    Exception NOTCLOSEEXCEPTION;
                 }
 
             }
-            catch (Exception e)
+            catch (Exception NOTCLOSEEXCEPTION)
             {
-               
+                // conn close를 실패했을 때
+
                 return login;
             }
 
@@ -313,36 +344,69 @@ namespace ServerModule
         // 미정
         private int CheckPw(string id, string pw)
 		{
-            /*
-			int check = 0;
+            // 0	: 존재하지 않는 id
+            // 1	: 성공
+            // -1	: 에러 또는 예외 발생 
+            int check = 0;
 
-			MySqlConnection conn = UserConnect();
-			string select_pw = SelectPw(id, conn);
-			if (!ConnClose(conn))
-			{
-				//conn 객체 예외처리
-			}
+            // id값에 해당하는 비밀번호 가져오기
+            string select_pw = SelectPw(id, conn);
 
-			if (select_pw == null)  // id가 없을때
-			{
-				check = 0;
-			}
-			else if (pw == select_pw)	// pw가 일치할 때
-			{
-				check = 1;
-			}
-			else            // 그외 예외
-			{
-				check = -1;
-			}
-            */
-
-			return check;
+            if (select_pw == null)  // id가 없을때
+            {
+                check = 0;
+            }
+            else if (pw == select_pw)   // pw가 일치할 때
+            {
+                check = 1;
+            }
+            else    // 그외의 예외
+            {
+                check = -1;
+            }
+            
+            return check;
 		}
 
         private string SelectPw(string id, MySqlConnection conn)
 		{
             string selectPw;
+
+            try
+            {
+                // DB 연결
+                MySqlConnection conn = UserConnect();
+
+                // Select문 수행
+                DataTable dt = SqlSelect("user_tb", $"U_id = '{id}'", conn);
+
+                // id 일치 확인
+                if (id == dt.Rows[0]["U_id"])
+                {
+                    // pw를 문자열 변수에 저장 
+                    selectPw = dt.Rows[0]["U_password"]
+                }
+                else
+                {
+                    Exception NOIDEXCEPTION;
+                }
+
+                // DB 닫기
+                if (!ConnClose(conn))
+                {
+                    Exception NOTCLOSEEXCEPTION;
+                }
+            }
+            catch (Exception NOTCLOSEEXCEPTION)
+            {
+                // conn close를 실패했을 때
+
+                return null;
+            }
+            catch (Exception NOIDEXCEPTION)
+            {
+                return null;
+            }
 
             return selectPw;
         }

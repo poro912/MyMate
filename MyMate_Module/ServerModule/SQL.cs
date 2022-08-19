@@ -18,7 +18,7 @@ namespace ServerModule
     { 
     }
 
-    class SQL
+    public class SQL
     {
         /// <summary>
         /// DB에 접속하기 위해서 db connection 객체를 생성하는 메서드
@@ -181,6 +181,7 @@ namespace ServerModule
         /// <summary>
         /// 회원가입을 위한 데이터들의 유효성 검사를 하여 회원가입하는 메서드
         /// </summary>
+        /// <param name="code">회원 일련번호</param>
         /// <param name="id">회원 id</param>
         /// <param name="pw">회원 password</param>
         /// <param name="name">회원 이름</param>
@@ -188,7 +189,8 @@ namespace ServerModule
         /// <param name="phone">회원 전화번호</param>
         /// <param name="conn">DB connection 객체</param>
         /// <returns></returns>
-        private bool SignIn(
+        public bool SignIn(
+            int code,
             string id,
             string pw,
             string name,
@@ -246,7 +248,7 @@ namespace ServerModule
                 }
 
                 // 매개변수 값들의 이상이 없다면 수행 되는 과정
-                okSignIn = SignInInsert(id, pw, name, nick, phone);
+                okSignIn = SignInInsert(code,id, pw, name, nick, phone);
 
             } while (true);
 
@@ -256,6 +258,7 @@ namespace ServerModule
         /// <summary>
         /// 회원가입을 위해서 DB에 Insert 문을 통해서 사용자 정보 등록하는 메서드
         /// </summary>
+        /// <param name="code">회원 일련번호</param>
         ///  <param name="id">회원 id</param>
         /// <param name="pw">회원 password</param>
         /// <param name="name">회원 이름</param>
@@ -263,6 +266,7 @@ namespace ServerModule
         /// <param name="phone">회원 전화번호</param>
         /// <returns></returns>
         private bool SignInInsert(
+            int code,
             string id,
             string pw,
             string name,
@@ -274,7 +278,7 @@ namespace ServerModule
             bool okInsert;
 
             // Insert values 절
-            string value = $"'{id}','{pw}','{name}','{nick}','{phone}'";
+            string value = $"{code},'{id}','{pw}','{name}','{nick}','{phone}',null";
 
             try
             {
@@ -306,10 +310,8 @@ namespace ServerModule
         /// <param name="id">회원이 입력한 id</param>
         /// <param name="pw">회원이 입력한 pw</param>
         /// <returns></returns>
-        private bool Login(string id, string pw)
+        public bool Login(string id, string pw)
         {
-            bool login = true;
-
             try
             {
                 // DB 연결
@@ -318,23 +320,17 @@ namespace ServerModule
                 // Select문 수행
                 DataTable dt = SqlSelect("user_tb", $"U_id = '{id}'", conn);
 
-                do
+                // id 일치 확인
+                if (id != dt.Rows[0]["U_id"].ToString())
                 {
-                    // id 일치 확인
-                    if (id != dt.Rows[0]["U_id"].ToString())
-                    {
-                        login = false;
-                        break;
-                    }
+                    return false;
+                }
 
-                    // pw 일치 확인
-                    if (pw != dt.Rows[0]["U_password"].ToString())
-                    {
-                        login = false;
-                        break;
-                    }
-
-                } while (true);
+                // pw 일치 확인
+                if (pw != dt.Rows[0]["U_password"].ToString())
+                {
+                    return false;
+                }
 
                 // DB 닫기
                 if (!ConnClose(conn))
@@ -347,10 +343,10 @@ namespace ServerModule
             {
                 // conn close를 실패했을 때
 
-                return login;
+                return false;
             }
 
-            return login;
+            return true;
         }
 
         // 미정

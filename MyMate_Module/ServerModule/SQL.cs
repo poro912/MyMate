@@ -8,17 +8,14 @@ namespace ServerModule
 {
     class NODATAEXCEPTION : Exception
     { 
-    
     }
 
     class NOTCLOSEEXCEPTION : Exception
     { 
-    
     }
 
     class NOIDEXCEPTION : Exception
     { 
-    
     }
 
     class SQL
@@ -48,7 +45,7 @@ namespace ServerModule
             // DB connection 객체 생성
             MySqlConnection Conn = new MySqlConnection(conn);
 
-            // conn 객체를 open 상태로 만들어줌(오픈상태가 어떤 상태인지 설명해주면 좋을 것 같다)
+            // conn 객체를 open 상태로 만들어줌
             Conn.Open();
 
             return Conn;
@@ -100,7 +97,7 @@ namespace ServerModule
         /// DB에 Insert 구문을 수행하는 메서드
         /// </summary>
         /// <param name="table">Insert하려는 테이블</param>
-        /// <param name="value">Insert할때 조건절</param>
+        /// <param name="value">Insert할때 조건절(insert문에서 values 키워드 이후 전부 작성)</param>
         /// <param name="conn">DB connection 객체</param>
         /// <returns></returns>
         private bool SqlInsert(
@@ -137,7 +134,7 @@ namespace ServerModule
         /// DB에 Select 구문을 수행하는 메서드
         /// </summary>
         /// <param name="table">Select하려는 테이블</param>
-        /// <param name="condition">Select할때 조건절</param>
+        /// <param name="condition">Select할때 조건절(select문에서 where키워드 이후 전부 작성)</param>
         /// <param name="conn">DB connection 객체</param>
         /// <returns></returns>
         private DataTable SqlSelect(

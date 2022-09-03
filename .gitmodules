@@ -1,0 +1,3 @@
+[submodule "MyMate_NetWork"]
+	path = MyMate_NetWork
+	url = https://github.com/poro912/MyMate_NetWork

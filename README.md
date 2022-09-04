@@ -9,7 +9,7 @@
 | 이무현 | Network | [poro912](https://github.com/poro912) | angus99@naver.com |
 | 장 진 | Client | [ycs-202007064](https://github.com/ycs-202007064) | 1602spam@naver.com |
 | 최민호 | QA | [ycs-202007043](https://github.com/ycs-202007043) |  |
-| 편성윤 | Server | [PyunSungYun](https://github.com/PyunSungYun) |  |
+| 편성윤 | Server | [PyunSungYun](https://github.com/PyunSungYun) | psy7217@naver.com |
 
 
 ## MyMate_Client

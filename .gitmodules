@@ -1,9 +1,9 @@
-[submodule "MyMate_NetWork"]
-	path = MyMate_NetWork
-	url = https://github.com/poro912/MyMate_NetWork
 [submodule "MyMate_Server"]
 	path = MyMate_Server
-	url = https://github.com/poro912/MyMate_Server
+	url = https://github.com/poro912/MyMate_Server.git
 [submodule "MyMate_Client"]
 	path = MyMate_Client
 	url = https://github.com/ycs-202007064/MyMate_Client.git
+[submodule "MyMate_Network"]
+	path = MyMate_Network
+	url = https://github.com/poro912/MyMate_Network.git

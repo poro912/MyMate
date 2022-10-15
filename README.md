@@ -4,13 +4,15 @@
 ## Contributors
 | 담당자 | 업무 | git| e_mail |
 | :--- | :---: | :---: | :---: |
-| 김예지 | Client | [ycs-202007052](https://github.com/ycs-202007052) | |
-| 김호경 | DataBase Manageing | [HO-0219](https://github.com/HO-0219) |  |
+| 김예지 | Client | [ycs-202007052](https://github.com/ycs-202007052) | kimyeji0045@naver.com |
+| 김호경 | DataBase Manageing | [HO-0219](https://github.com/HO-0219) | psy7217@naver.com |
 | 이무현 | Network | [poro912](https://github.com/poro912) | angus99@naver.com |
 | 장 진  | Client | [ycs-202007064](https://github.com/ycs-202007064) | 1602spam@naver.com |
-| 최민호 | QA | [ycs-202007043](https://github.com/ycs-202007043) |  |
+| 최민호 | QA | [ycs-202007043](https://github.com/ycs-202007043) | min36634@naver.com |
 | 편성윤 | Server | [PyunSungYun](https://github.com/PyunSungYun) | psy7217@naver.com |
 
+## MyMate
+[poro912/MyMate](https://github.com/poro912/MyMate)
 
 ## MyMate_Client
 MAUI를 사용한 클라이언트 프로그램</br>

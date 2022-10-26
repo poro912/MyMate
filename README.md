@@ -10,6 +10,7 @@
 | 장 진  | Client | [ycs-202007064](https://github.com/ycs-202007064) | 1602spam@naver.com |
 | 최민호 | QA | [ycs-202007043](https://github.com/ycs-202007043) | min36634@naver.com |
 | 편성윤 | Server | [PyunSungYun](https://github.com/PyunSungYun) | psy7217@naver.com |
+| 최우진 | Server | [UnitySio](https://github.com/UnitySio) | dnwls010728@gmail.com |
 
 ## MyMate
 [poro912/MyMate](https://github.com/poro912/MyMate)

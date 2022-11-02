@@ -615,6 +615,8 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,csharp
 
-!TestProgream/*
-!TestProgream/*.exe
-!TestProgream/*.dll
+!.TestProgream/*/
+!.TestProgream/*/*.exe
+!.TestProgream/*/*.dll
+!.TestProgream/*/*.pdb
+!.TestProgream/*/*.json

@@ -1,0 +1,67 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TestClient/1.0.0": {
+        "dependencies": {
+          "ClientToServer": "1.0.0.0",
+          "MyMate_Network_Library": "1.0.0.0",
+          "TestDataSender": "1.0.0.0"
+        },
+        "runtime": {
+          "TestClient.dll": {}
+        }
+      },
+      "ClientToServer/1.0.0.0": {
+        "runtime": {
+          "ClientToServer.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MyMate_Network_Library/1.0.0.0": {
+        "runtime": {
+          "MyMate_Network_Library.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "TestDataSender/1.0.0.0": {
+        "runtime": {
+          "TestDataSender.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TestClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClientToServer/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyMate_Network_Library/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TestDataSender/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

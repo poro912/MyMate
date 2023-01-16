@@ -1,0 +1,93 @@
+1. form으로 작업되어있는 것을 메소드로 바꿔 파일에서 따로 관리하기
+	다음중에 하나를 골라 작성한다.
+		1) 새로 프로젝트를 생성해 저장
+		2) MyMate_Module/ServerModule/SQL.cs 에 저장
+		3) 메모장에 작업해 저장
+
+2. 작성할 메소드 목록
+
+
+MySqlConnection	AdminConnect(void);
+		// 관리자권한으로 DB에 접근하여 여는 메소드
+		// 로그인 성공 시 Connection 객체 반환
+		// 로그인에 필요한 정보는 메소드 내에서 관리
+
+MySqlConnection	UserConnect(void);
+		// 사용자 권한으로 DB에 접근하여 여는 메소드
+		// 로그인 성공 시 Connection 객체 반환
+		// 로그인에 필요한 정보는 메소드 내에서 관리
+
+bool SqlClose ( MySqlConnection )
+		// Connection 객체를 전달하여 객체를 닫는 메소드
+
+bool Sqlinsert( String command)
+		// insert 문장을 실행하는 메소드
+		// "into values()" 절만 받아 자동으로 처리하는 메소드
+		// "insert" 문장은 자동으로 들어가게 처리
+		// 예외처리 해야함
+		// 데이터 삽입은 해당 함수를 통해서 해야 함
+
+bool. SqlSelect (String Command)
+		// select 문장을 실행하는 메소드
+		// "from where " 절만 받아 자동으로 처리하는 메소드
+		// "select" 문장은 자동으로 들어가게 처리
+		// 예외처리 해야함
+		// 데이터 검색은 해당 함수를 통해서 해야 함 
+
+bool SignIn(	String id,
+		String pw,
+		String name,
+		String nick,
+		String phone)
+
+bool SignIn(	String id,
+		String pw,
+		String name,
+		String phone)
+
+		// 회원가입시에 호출 메소드
+		// 회원가입이 가능한 가 확인한 후 SiginInInsert 메소드를 호출하여 
+		// 회원가입을 진행함
+
+bool SiginInInsert(	String id,
+		String pw,
+		String name,
+		String nick,
+		String phone)
+		// 회원 가입 정보를 받아 DB에 저장하는 메소드
+
+
+bool Login(	String id,
+		String pw)
+		// 로그인 시 호출 될 메소드
+		// 유효한 id pw 인지 확인 하는 메소드
+
+int CheckPW(	String id,
+		String pw)
+		// SelectPW를 호출해서 pw 값과 일치하는지 확인 하는 메소드
+		// return 값
+		// 0	: 존재하지 않는 id
+		// 1	: 성공
+		// -1	: 에러 또는 예외 발생 
+		
+String SelectPW( 	Strign id)
+		// id 값에 따른 pw 값을 가져와 반환하는 메소드 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

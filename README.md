@@ -32,8 +32,8 @@ MyMate 협업 효율 증진을 위한 기능이 탑재된 메신저 프로그램
     * 친구 삭제
 
 ## DB
-<image src="./image/DB_1.png"></impage>
-<image src="./image/DB_2.png"></impage>
+<image src="./Image/DB_1.png"></impage>
+<image src="./Image/DB_2.png"></impage>
 
 ## Contributors
 | 담당자 | 업무 | git| e_mail |
